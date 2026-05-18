@@ -1,0 +1,16 @@
+name: Deploy Index File
+
+on:
+  push:
+    branches: [ "main" ] # Jab aap code push karenge tab chalega
+
+jobs:
+  deploy:
+    runs-on: self-hosted # Yeh line aap ke local Ubuntu server ko use karegi
+    steps:
+      - name: Code Download Karo
+        uses: actions/checkout@v4
+
+      - name: File Copy Karo
+        run: |
+          sudo cp index.html /var/www/html/
